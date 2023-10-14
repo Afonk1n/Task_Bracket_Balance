@@ -1,0 +1,7 @@
+C:\Users\mafon\source\repos\Task Brackets Balance\bin\Debug\Task Brackets Balance.exe.config
+C:\Users\mafon\source\repos\Task Brackets Balance\bin\Debug\Task Brackets Balance.exe
+C:\Users\mafon\source\repos\Task Brackets Balance\bin\Debug\Task Brackets Balance.pdb
+C:\Users\mafon\source\repos\Task Brackets Balance\obj\Debug\Task Brackets Balance.csproj.AssemblyReference.cache
+C:\Users\mafon\source\repos\Task Brackets Balance\obj\Debug\Task Brackets Balance.csproj.CoreCompileInputs.cache
+C:\Users\mafon\source\repos\Task Brackets Balance\obj\Debug\Task Brackets Balance.exe
+C:\Users\mafon\source\repos\Task Brackets Balance\obj\Debug\Task Brackets Balance.pdb
