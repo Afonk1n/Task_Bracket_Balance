@@ -8,12 +8,12 @@ namespace Task_Brackets_Balance
 {
     internal class Program
     {
-        private static readonly Dictionary<char, char> Pairs = new Dictionary<char, char>()
-        {
-            {'{', '}'},
-            {'(', ')'},
-            {'[', ']'}
-        };
+        private static Dictionary<char, char> _pairs = new Dictionary<char, char>
+            {
+                { '(', ')' },
+                { '[', ']' },
+                { '{', '}' },
+            };
         static void Main(string[] args)
         {
             Console.WriteLine(IsBalanced("()[]")); //true
@@ -22,28 +22,42 @@ namespace Task_Brackets_Balance
             Console.ReadLine();
         }
 
-        private static bool IsBalanced(string text) 
+        private static bool IsBalanced(string input) 
         {
-            if (string.IsNullOrEmpty(text))
+            if (string.IsNullOrEmpty(input))
             {
                 return false;
             }
 
             var stack = new Stack<char>();
-            foreach (var symbol in text)
+            // If input is empty string then return true
+            if (input.Count() == 0) { return true; }
+
+            Stack<char> brackets = new Stack<char>();
+
+            // Loop through each character
+            foreach (char i in input)
             {
-                if (Pairs.ContainsKey(symbol))
+                // If it is an opening bracket, push it to the stack
+                if (_pairs.ContainsKey(i))
                 {
-                    stack.Push(symbol);
+                    brackets.Push(i);
                 }
-                else if (!Pairs.ContainsKey(symbol)) continue;
-                else if (stack.Count == 0) return false;
-                else if (Pairs[stack.Pop()] != symbol)
+                // If it is an closing bracket, pop it
+                else if (_pairs.Values.Contains(i))
                 {
-                    return false;
+                    if (brackets.Count == 0) return false;
+
+                    var openingBracket = brackets.Pop();
+                    // If it isn't pair of the last opening bracket return false
+                    if (_pairs[openingBracket] != i)
+                    {
+                        return false;
+                    }
                 }
             }
-            return stack.Count == 0;
+            // The stack should be empty in case all brackets are closed
+            return brackets.Count == 0;
         }
     }
 }
